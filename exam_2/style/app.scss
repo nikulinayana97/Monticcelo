@@ -1,0 +1,568 @@
+$main-color: #2c4058;
+
+$container: 1200px;
+
+$linkColor: blue;
+
+@font-face {
+  font-family: 'GothamBook';
+  src: url('./GothamBook.eot');
+  src: local('GothamBook'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'gothambold1';
+  src: url('./gothambold1.eot');
+  src: local('gothambold1'), url('../fonts/gothambold1.woff') format('woff'), url('../fonts/gothambold1.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GothamMed';
+  src: url('../fonts/GothamMed.eot');
+  src: local('GothamBook'), url('../fonts/GothamBook.woff') format('woff'), url('../fonts/GothamBook.ttf') format('truetype');
+}
+
+// .visually-hidden {
+//   position: absolute !important;
+//   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+//   clip: rect(1px, 1px, 1px, 1px);
+//   padding:0 !important;
+//   border:0 !important;
+//   height: 1px !important; 
+//   width: 1px !important; 
+//   overflow: hidden;
+// }
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html{
+  font-size: 18px;
+}
+
+.container{
+  max-width: $container;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+a, button{
+  transition: .3s ease-in;
+  transition-property: color, background-color, opacity;
+  svg{
+    fill:currentColor;
+  }
+}
+button, .btn{
+  cursor: pointer;
+}
+
+// header
+
+.header{
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  top: 52px;
+
+  &__block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo{
+    min-width: 241px;
+    min-height: 54px;
+  }
+
+  &__menu{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5.4375vw;
+    margin-right: 5.3125vw;
+    
+    font-size: 0.777rem;
+    color: #fff;
+    text-transform: uppercase;
+
+    &--item{
+      margin: 0 34px;
+      font-family: 'GothamBook', sans-serif;
+
+      &:first-of-type{
+        margin-left: 0;
+      }
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+    }
+
+    &--link{
+      position: relative;
+
+      &:before{
+        position: absolute;
+        top: -10px;
+        left: -14px;
+        content: '';
+        height: 10px;
+        width: 10px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        transition: .3s;
+      }
+    }
+
+    &--link:hover{
+
+      &:before{
+        transition: .3s;
+        background-color: #fff;
+      }
+    }
+  }
+
+  &__social{
+    display: flex;
+    flex-direction: row;
+
+    &--block{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 20px;
+      height: 40px;
+      width: 40px;
+      color: #fff;
+      background-color: transparent;
+      border-radius: 50%;
+      border: 1px solid #fff;
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+    }
+  }
+
+}
+
+// hero
+
+.hero{
+  position: relative;
+  background-image: url(../img/bg.jpg);
+  background-color: #6e7bf9;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  color: #fff;
+
+  &.slick-slide{
+    display: flex;
+    height: 100vh;
+  }
+
+  &__slider{
+
+    .slick-dots{
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 59%;
+      transform: translateY(-50%);
+      right: 2.5vw;
+      z-index: 1000;
+      width: inherit;
+
+      li{
+        height: 10px;
+        width: 10px;
+        margin-bottom: 40px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 50%;
+
+        &.slick-active{
+          background-color: #fff;
+        }
+      }
+    }
+  }
+
+  &--container{
+    align-self: center;
+    text-align: center;
+
+  }
+
+  &__title{
+    margin-bottom: 35px;
+    font-family: 'gothambold1', sans-serif;
+    font-size: 4.444444rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  &__text{
+    font-family: 'GothamBook', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+}
+
+// projects
+
+.title-style{
+  position: relative;
+  font-family: 'gothambold1', sans-serif;
+  font-size: 2.4444rem;
+  color: $main-color;
+  text-transform: uppercase;
+  text-align: center;
+
+  &:before{
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    content: '';
+    width: 100px;
+    height: 1px;
+    background-color: $main-color;
+  }
+}
+
+.projects{
+  padding: 100px 0 140px 0;
+
+  &__title{
+    margin-bottom: 170px;
+  }
+
+  &__block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 140px;
+    align-items: center;
+
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+
+  &__section--text{
+    width:42.7%;
+
+  }
+
+  &__section--img{
+    position: relative;
+    width: 53.8%;
+    height: 100%;
+
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .picture--top:after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -70px;
+    display: block;
+    width: 95%;
+    height: 100%;
+    background-color: #55b7ff;
+    left: calc((100vw - 1200px) / -2);
+  }
+
+  .picture--bottom:after{
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -70px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #7e5aff;
+    right: calc((100vw - 1200px) / -2);
+  }
+
+  &__subtitle{
+    margin-bottom: 16px;
+    font-family: 'GothamBook', sans-serif;
+    font-size: 1.22222rem;
+    color: $main-color;
+    text-transform: uppercase;
+  }
+
+  &__block--title{
+    margin-bottom: 10px;
+    font-family: 'gothambold1', sans-serif;
+    font-size: 2.4444rem;
+    color: $main-color;
+    text-transform: uppercase;
+  }
+
+  &__text{
+    margin-bottom: 32px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.666em;
+    color: #4b5562;
+    font-weight: 300;
+  }
+
+  &__btn{
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 11.875vw;
+    height: 3.125vw;
+    border: 1px solid #4b5562;
+    font-family: 'GothamBook', sans-serif;
+    text-transform: uppercase;
+    font-size: 0.7777rem;
+    background-color: transparent;
+  }
+
+  &__address{
+    font-family: 'Open Sans', sans-serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: $main-color;
+
+    i{
+      margin-right: 10px;
+    }
+  }
+}
+
+// blog
+
+.blog{
+  padding: 140px 0;
+  background-image: url(../img/news-bg.jpg);
+  background-color: #339ce2;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__title{
+    margin-bottom: 95px;
+    color: #fff;
+
+    &:before{
+      background-color: #fff;
+    }
+  }
+
+  &__slider{
+
+    .slick-track{
+      height: 100%;
+    }
+  }
+
+  &__section{
+    padding: 0 15px;
+
+    &.slick-slide{
+      width: 31%;
+
+    }
+  }
+
+  &__picture{
+    max-height: 220px;
+  }
+
+  &__info, &__author{
+    padding: 30px 30px 30px 20px;
+    background-color: #fff;
+  }
+
+  &__section--title{
+    margin-bottom: 10px;
+    font-family: 'gothambold1', sans-serif;
+    font-size: 1.2222rem;
+    line-height: 1.55em;
+    color: $main-color;
+    text-transform: uppercase;
+  }
+
+  &__section--text{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.666em;
+    color: #4b5562;
+  }
+
+  &__author{
+    display: flex;
+    align-items: center;
+
+    &--img{
+      margin-right: 20px;
+    }
+
+    .author__info{
+      font-family: 'GothamBook', sans-serif;
+      font-weight: 300;
+    }
+
+    .author__name{
+      margin-bottom: 25px;
+      font-size: 1rem;
+      color: $main-color;
+      text-transform: uppercase;
+    }
+
+    .author__data{
+      font-size: 0.77777rem;
+      color: #55b7ff;
+    }
+  }
+
+  & .slick-next, .slick-prev{
+    height: 40px;
+    width: 40px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+  }
+
+  & .slick-prev{
+    left: -100px;
+  }
+
+  & .slick-next{
+    right: -70px;
+  }
+
+  & .slick-dots{
+    bottom: -70px;
+
+    li{
+      height: 10px;
+      width: 10px;
+      background-color: transparent;
+      border: 1px solid #fff;
+      border-radius: 50%;
+      margin: 0 20px;
+
+      &:first-of-type{
+        margin-left: 0;
+      }
+
+      &:last-of-type{
+        margin-right: 0;
+      }
+
+      button{
+        height: 10px;
+        width: 10px;
+      }
+
+      &.slick-active{
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+// gallery
+
+.gallery{
+  padding: 140px 0;
+
+  &__title{
+    margin-bottom: 100px;
+  }
+
+  &__section{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__block--big{
+    width: 49.5%;
+  }
+
+  &__block{
+    width: 24.75%;
+  }
+}
+
+// map
+
+#map{
+  height: 700px;
+}
+
+// contact
+
+.contact{
+  position: relative;
+  margin: 0 auto;
+  bottom: 300px;
+  width: 770px;
+  padding: 90px 60px 75px 60px;
+  background-image: url(../img/contact-bg.png);
+  background-size: auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-color: #fff;
+
+  &__title{
+    margin-bottom: 55px;
+  }
+
+  &__section{
+    display: flex;
+    justify-content: space-between;
+    font-family: 'GothamMed', sans-serif;
+    color: $main-color;
+  }
+
+  &__info, &__form{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+
+    i{
+      margin-right: 12px;
+      color: #7e5aff;
+    }
+  }
+
+  &__info--item{
+    margin-bottom: 40px;
+  }
+
+  &__form{
+
+    &--input{
+    margin-bottom: 30px;
+    width: 100%;
+    height: 40px;
+  }
+  }
+}
+
+
+
